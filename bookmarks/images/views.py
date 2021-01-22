@@ -6,6 +6,11 @@ from actions.utils import create_action
 from .models import Image
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+import redis
+from django.conf import settings
+
+# connect to redis
+r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
 
 
 @login_required
@@ -50,3 +55,5 @@ def image_like(request):
         except:
             pass
     return JsonResponse({'status': 'ko'})
+
+
