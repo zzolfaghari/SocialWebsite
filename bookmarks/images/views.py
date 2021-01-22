@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 import redis
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 
 # connect to redis
 r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
@@ -38,6 +39,11 @@ def image_create(request):
                        'form': form})
 
 
+def image_detail(request, id, slug):
+    image = get_object_or_404(Image, id=id, slug=slug)
+    return render(request, 'images/image/detail.html', {'section': 'images', 'image': image})
+
+
 @login_required
 @require_POST
 def image_like(request):
@@ -55,5 +61,3 @@ def image_like(request):
         except:
             pass
     return JsonResponse({'status': 'ko'})
-
-
