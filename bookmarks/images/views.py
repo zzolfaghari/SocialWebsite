@@ -41,6 +41,7 @@ def image_like(request):
     if image_id and action:
         try:
             image = Image.objects.get(id=image_id)
+            create_action(request.user, 'likes', image)
             if action == 'like':
                 image.users_like.add(request.user)
             else:
