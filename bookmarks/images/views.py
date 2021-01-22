@@ -41,7 +41,10 @@ def image_create(request):
 
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
-    return render(request, 'images/image/detail.html', {'section': 'images', 'image': image})
+    # increment total image views by 1
+    total_views = r.incr('image:{}:views'.format(image.id))
+    return render(request, 'images/image/detail.html', {'section': 'images', 'image': image,
+                                                        'total_views': total_views})
 
 
 @login_required
