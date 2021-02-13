@@ -7,8 +7,8 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import ImageCreateForm
 from .models import Image
-from common.decorators import ajax_required
-from actions.utils import create_action
+from bookmarks.common.decorators import ajax_required
+from bookmarks.actions.utils import create_action
 import redis
 from django.conf import settings
 
