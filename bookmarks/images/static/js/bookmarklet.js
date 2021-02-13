@@ -1,6 +1,6 @@
 (function(){
   var jquery_version = '3.3.1';
-  var site_url = 'https://3f6ad53c.ngrok.io/';
+  var site_url = 'https://a270e9dd7213.ngrok.io';
   var static_url = site_url + 'static/';
   var min_width = 100;
   var min_height = 100;
@@ -39,10 +39,13 @@
       // hide bookmarklet
       jQuery('#bookmarklet').hide();
       // open new window to submit the image
-      window.open(site_url +'images/create/?url=' + encodeURIComponent(selected_image) + '&title=' + encodeURIComponent(jQuery('title').text()),
+      window.open(site_url +'images/create/?url='
+                  + encodeURIComponent(selected_image)
+                  + '&title='
+                  + encodeURIComponent(jQuery('title').text()),
                   '_blank');
     });
-  }
+  };
 
   // Check if jQuery is loaded
   if(typeof window.jQuery != 'undefined') {
@@ -63,14 +66,14 @@
       if(typeof window.jQuery == 'undefined') {
         if(--attempts > 0) {
           // Calls himself in a few milliseconds
-          window.setTimeout(arguments.callee, 250);
+          window.setTimeout(arguments.callee, 250)
         } else {
           // Too much attempts to load, send error
-          alert('An error occurred while loading jQuery');
+          alert('An error ocurred while loading jQuery')
         }
       } else {
           bookmarklet();
       }
     })();
   }
-})();
+})()
