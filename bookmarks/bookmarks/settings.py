@@ -26,7 +26,7 @@ SECRET_KEY = 'gve$t6xqy6me0*%4hvu8d$i)cvc^^rj3a#iao#vtceuiu(_di@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['a270e9dd7213.ngrok.io','127.0.0.1']
 
 # Application definition
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'images',
     'actions',
-    'sorl.thumbnail',
+    'sorl.thumbnail'
 
 ]
 
@@ -92,10 +92,20 @@ LOGOUT_URL = 'logout'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bookmark',
+        'USER': 'postgres',
+        'PASSWORD': '123321zara',
+        'HOST': 'localhost',
     }
 }
 
