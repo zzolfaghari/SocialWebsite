@@ -6,9 +6,9 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
-from bookmarks.common.decorators import ajax_required
-from bookmarks.actions.utils import create_action
-from bookmarks.actions.models import Action
+from common.decorators import ajax_required
+from actions.utils import create_action
+from actions.models import Action
 from .forms import LoginForm, UserRegistrationForm, \
     UserEditForm, ProfileEditForm
 from .models import Profile, Contact
