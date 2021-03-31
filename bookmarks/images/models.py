@@ -27,3 +27,8 @@ class Image(models.Model):
 
     def get_absolute_url(self):
         return reverse('images:detail', args=[self.id, self.slug])
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image_url

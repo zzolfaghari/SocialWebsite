@@ -26,6 +26,7 @@ def image_create(request):
         if form.is_valid():
             # form data is valid
             cd = form.cleaned_data
+            print(cd)
             new_item = form.save(commit=False)
 
             # assign current user to the item
@@ -48,6 +49,12 @@ def image_create(request):
 
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
+    print(image.slug)
+    print(image.id)
+    print(image.title)
+    print(image.created)
+    print(image.image)
+
     # increment total image views by 1
     total_views = r.incr('image:{}:views'.format(image.id))
     # increment image ranking by 1
